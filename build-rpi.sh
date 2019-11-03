@@ -155,14 +155,15 @@ if [ -n "$UPX_IT" ]; then
     upx $GAME_NAME > /dev/null 2>&1
 fi
 
+cd $ROOT_DIR
+
 if [ -n "$RUN_AFTER_BUILD" ]; then
     [ -z "$QUIET" ] && echo "COMPILE-INFO: Running."
     if [ -n "$REALLY_QUIET" ]; then
-        ./$GAME_NAME > /dev/null 2>&1
+        ./$OUTPUT_DIR/$GAME_NAME > /dev/null 2>&1
     else
-        ./$GAME_NAME
+        ./$OUTPUT_DIR/$GAME_NAME
     fi
 fi
-cd $ROOT_DIR
 
 [ -z "$QUIET" ] && echo "COMPILE-INFO: All done."

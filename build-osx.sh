@@ -7,7 +7,7 @@ GAME_NAME="game"
 SOURCES="src/*.c"
 
 # Set your raylib/src location here (relative path!)
-RAYLIB_SRC="../../src"
+RAYLIB_SRC="vendor/raylib"
 
 # About this build script: it does many things, but in essence, it's
 # very simple. It has 3 compiler invocations: building raylib (which
@@ -157,14 +157,15 @@ if [ -n "$UPX_IT" ]; then
     upx $GAME_NAME > /dev/null 2>&1
 fi
 
+cd $ROOT_DIR
+
 if [ -n "$RUN_AFTER_BUILD" ]; then
     [ -z "$QUIET" ] && echo "COMPILE-INFO: Running."
     if [ -n "$REALLY_QUIET" ]; then
-        ./$GAME_NAME > /dev/null 2>&1
+        ./$OUTPUT_DIR/$GAME_NAME > /dev/null 2>&1
     else
-        ./$GAME_NAME
+        ./$OUTPUT_DIR/$GAME_NAME
     fi
 fi
-cd $ROOT_DIR
 
 [ -z "$QUIET" ] && echo "COMPILE-INFO: All done."

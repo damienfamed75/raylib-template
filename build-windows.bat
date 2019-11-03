@@ -202,17 +202,17 @@ IF DEFINED UPX_IT (
   upx !GAME_NAME! > NUL 2>&1
 )
 
+REM Back to development directory
+cd !ROOT_DIR!
+
 REM Finally, run the produced executable
 IF DEFINED RUN_AFTER_BUILD (
   IF NOT DEFINED QUIET echo COMPILE-INFO: Running.
   IF DEFINED REALLY_QUIET (
-    !GAME_NAME! > NUL 2>&1
+    !OUTPUT_DIR!\!GAME_NAME! > NUL 2>&1
   ) ELSE (
-    !GAME_NAME!
+    !OUTPUT_DIR!\!GAME_NAME!
   )
 )
-
-REM Back to development directory
-cd !ROOT_DIR!
 
 IF NOT DEFINED QUIET echo COMPILE-INFO: All done.

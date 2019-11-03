@@ -3,7 +3,7 @@
 int main(void) {
 	InitWindow(800, 450, "Hello");
 
-	Camera camera = {0};
+	Camera camera;
 	camera.position = (Vector3){3.0, 3.0, 3.0};
 	camera.target = (Vector3){0.0, 1.5, 0.0};
 	camera.up = (Vector3){0.0, 1.0, 0.0};
